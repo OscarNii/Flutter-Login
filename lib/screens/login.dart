@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:logins/config/palette.dart';
 
@@ -69,7 +71,7 @@ class _LoginState extends State<Login> {
           Positioned(
             top: 240,
             child: Container(
-              height: 300,
+              height: 500,
               padding: const EdgeInsets.all(20),
               width: MediaQuery.of(context).size.width - 40,
               margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -137,12 +139,71 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                     ],
-                  )
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 10),
+                    child: Column(
+                      children: [
+                        TextField(
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(
+                              Icons.email,
+                              color: Palette.googleColor,
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Palette.facebookColor),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Palette.facebookColor),
+                            ),
+                            hintText: "User Name",
+                            hintStyle: TextStyle(
+                                fontSize: 15, color: Palette.textColor),
+                          ),
+                        ),
+                        Container(
+                          child: Column(
+                            children: [
+                              buildText(Icons.email, "User Name", false, false),
+                              buildText(
+                                  Icons.email_outlined, "Email", false, true),
+                              buildText(Icons.email_outlined, "Password", true,
+                                  false),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
           )
         ],
+      ),
+    );
+  }
+
+  TextField buildText(
+      IconData icon, String hintText, bool isPassword, bool isEmail) {
+    return TextField(
+      obscureText: isPassword,
+      keyboardType: isEmail ? TextInputType.emailAddress : TextInputType.text,
+      decoration: InputDecoration(
+        prefixIcon: Icon(
+          icon,
+          color: Palette.googleColor,
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Palette.facebookColor),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Palette.facebookColor),
+        ),
+        hintText: hintText,
+        hintStyle: TextStyle(fontSize: 15, color: Palette.textColor),
       ),
     );
   }
