@@ -1,7 +1,8 @@
-// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
+// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors, import_of_legacy_library_into_null_safe
 
 import 'package:flutter/material.dart';
 import 'package:logins/config/palette.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -33,36 +34,47 @@ class _LoginState extends State<Login> {
                 padding: const EdgeInsets.only(top: 90, left: 20),
                 color: Colors.black12,
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     RichText(
-                      text: const TextSpan(
-                        text: "Welcome to",
-                        style: TextStyle(
-                            letterSpacing: 3,
-                            fontSize: 25,
-                            fontWeight: FontWeight.normal,
-                            color: Colors.white),
+                      text: TextSpan(
                         children: [
                           TextSpan(
-                            text: "RichMay",
-                            style: TextStyle(
-                                letterSpacing: 3,
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                            text: "RichMay ",
+                            style: GoogleFonts.adamina(
+                                textStyle:
+                                    Theme.of(context).textTheme.headline4,
+                                fontSize: 50,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
                     ),
-                    const SizedBox(height: 8),
-                    const Text(
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: "Restaurant",
+                            style: GoogleFonts.adamina(
+                                textStyle:
+                                    Theme.of(context).textTheme.headline4,
+                                fontSize: 30,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 0),
+                    Padding(padding: EdgeInsets.all(30)),
+                    Text(
                       "sign up to continue",
                       style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: Colors.white),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -71,7 +83,7 @@ class _LoginState extends State<Login> {
           Positioned(
             top: 240,
             child: Container(
-              height: 500,
+              height: 350,
               padding: const EdgeInsets.all(20),
               width: MediaQuery.of(context).size.width - 40,
               margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -169,8 +181,8 @@ class _LoginState extends State<Login> {
                               buildText(Icons.email, "User Name", false, false),
                               buildText(
                                   Icons.email_outlined, "Email", false, true),
-                              buildText(Icons.email_outlined, "Password", true,
-                                  false),
+                              buildText(Icons.password_outlined, "Password",
+                                  true, false),
                             ],
                           ),
                         ),

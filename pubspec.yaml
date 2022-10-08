@@ -30,7 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
-  google_fonts_arabic: ^1.1.7
+  google_fonts: ^2.0.0
 
 dev_dependencies:
   flutter_lints: ^1.0.0
